@@ -8,14 +8,14 @@ import org.sqlite.SQLiteDataSource;
 public class Tester {
 	public static SQLiteDataSource ds;
 	public static Connection conn;
-	public static String databaseName = "SQLiteTest";
+	public static String databaseName = "Tester.db";
 	
 	public static void main(String[] args) throws SQLException {
 		ds = null;
 		createDatabase();
 		
 		//create table
-		Table table1 = new Table("test1");
+		Table table1 = new Table("test");
 		table1.queryTable();
 		
 		//Insert two rows and then print table
@@ -33,6 +33,7 @@ public class Tester {
 		table1.deleteRow("amit");
 		table1.queryTable();
 		
+		System.out.println(ds.getUrl());
 		//delete table
 		table1.deleteTable();
 		
